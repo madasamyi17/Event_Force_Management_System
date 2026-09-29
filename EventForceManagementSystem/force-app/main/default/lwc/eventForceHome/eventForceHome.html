@@ -1,1 +1,53 @@
+<template>
+    <lightning-card
+        title="EventForce Management"
+        icon-name="standard:event">
 
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+
+                <template for:each={modules} for:item="module">
+
+                    <div
+                        key={module.name}
+                        class="slds-size_1-of-1
+                               slds-medium-size_1-of-3
+                               slds-p-around_small">
+
+                        <article class="slds-card">
+
+                            <div class="slds-card__body slds-card__body_inner">
+
+                                <lightning-icon
+                                    icon-name={module.icon}
+                                    size="medium">
+                                </lightning-icon>
+
+                                <h2 class="slds-text-heading_small slds-m-top_small">
+                                    {module.name}
+                                </h2>
+
+                                <p class="slds-m-top_x-small">
+                                    {module.description}
+                                </p>
+
+                                <lightning-button
+                                    class="slds-m-top_small"
+                                    label="Open"
+                                    data-target={module.target}
+                                    onclick={openModule}>
+                                </lightning-button>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </template>
+
+            </div>
+        </div>
+
+    </lightning-card>
+</template>
